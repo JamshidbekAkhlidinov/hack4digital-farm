@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "question".
@@ -24,6 +26,22 @@ class Question extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'question';
+    }
+
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'value' => date('Y-m-d H:i:s'),
+                'updatedAtAttribute' => false,
+            ],
+            [
+                'class' => BlameableBehavior::class,
+                'updatedByAttribute' => false,
+            ]
+        ];
     }
 
     /**
