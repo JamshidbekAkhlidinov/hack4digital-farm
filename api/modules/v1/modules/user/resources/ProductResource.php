@@ -1,22 +1,27 @@
 <?php
-
 /*
  *   Jamshidbek Akhlidinov
- *   5 - 10 2023 22:21:41
+ *   25 - 11 2023 13:5:56
  *   https://github.com/JamshidbekAkhlidinov
  */
 
 namespace api\modules\v1\modules\user\resources;
 
-use common\models\Category;
+use common\models\Product;
 
-class CategoryResource extends Category
+class ProductResource extends Product
 {
     public function fields()
     {
         return [
             'id',
+            'product_category_id',
             'name',
+            'photo',
+            'price',
+            'sub_text',
+            'body',
+            'created_at',
         ];
     }
 }

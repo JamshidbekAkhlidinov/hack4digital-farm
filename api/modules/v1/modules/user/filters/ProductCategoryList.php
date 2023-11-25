@@ -8,10 +8,10 @@
 namespace api\modules\v1\modules\user\filters;
 
 use api\modules\v1\base\FilterRequest;
-use api\modules\v1\modules\user\resources\CategoryResource;
+use api\modules\v1\modules\user\resources\ProductCategoryResource;
 use common\enums\StatusEnum;
 
-class CategoryList extends FilterRequest
+class ProductCategoryList extends FilterRequest
 {
     public $name;
 
@@ -24,7 +24,7 @@ class CategoryList extends FilterRequest
 
     public function getModels()
     {
-        $query = CategoryResource::find();
+        $query = ProductCategoryResource::find();
 
         $query->orderBy(['id' => SORT_DESC]);
 
