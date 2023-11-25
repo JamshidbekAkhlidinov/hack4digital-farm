@@ -3,19 +3,19 @@
 namespace api\modules\v1\modules\user\controllers;
 
 use api\controllers\BaseController;
-use api\modules\v1\modules\user\filters\ProductCategoryList;
-use api\modules\v1\modules\user\forms\ProductCategoryForm;
-use api\modules\v1\modules\user\requests\ProductCategoryDeleteData;
-use api\modules\v1\modules\user\requests\ProductCategoryPageData;
-use common\models\ProductCategory;
+use api\modules\v1\modules\user\filters\ProductList;
+use api\modules\v1\modules\user\forms\ProductForm;
+use api\modules\v1\modules\user\requests\ProductDeleteData;
+use api\modules\v1\modules\user\requests\ProductPageData;
+use common\models\Product;
 use yii\web\NotFoundHttpException;
 
-class ProductCategoryController extends BaseController
+class ProductController extends BaseController
 {
     public function actionIndex()
     {
         return $this->sendResponse(
-            new ProductCategoryList(),
+            new ProductList(),
             request()->get(),
         );
     }
@@ -23,26 +23,17 @@ class ProductCategoryController extends BaseController
     public function actionCreate()
     {
         return $this->sendResponse(
-            new ProductCategoryForm(
-                new ProductCategory(),
+            new ProductForm(
+                new Product(),
                 request()->post(),
             )
-        );
-    }
-
-    public function actionDelete($id)
-    {
-        return $this->sendResponse(
-            new ProductCategoryDeleteData(
-                $this->getModel($id),
-            ),
         );
     }
 
     public function actionUpdate($id)
     {
         return $this->sendResponse(
-            new ProductCategoryForm(
+            new ProductForm(
                 $this->getModel($id),
                 request()->post(),
             )
@@ -52,7 +43,17 @@ class ProductCategoryController extends BaseController
     public function actionView($id)
     {
         return $this->sendResponse(
-            new ProductCategoryPageData(
+            new ProductPageData(
+                $this->getModel($id),
+            ),
+        );
+    }
+
+
+    public function actionDelete($id)
+    {
+        return $this->sendResponse(
+            new ProductDeleteData(
                 $this->getModel($id),
             ),
         );
@@ -63,7 +64,7 @@ class ProductCategoryController extends BaseController
      */
     private function getModel($id)
     {
-        $model = ProductCategory::findOne([
+        $model = Product::findOne([
             'id' => $id,
             'created_by' => user()->id,
         ]);

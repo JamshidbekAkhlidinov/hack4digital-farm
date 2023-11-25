@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "product".
@@ -32,6 +34,19 @@ class Product extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'product';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'value' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'class' => BlameableBehavior::class,
+            ]
+        ];
     }
 
     /**

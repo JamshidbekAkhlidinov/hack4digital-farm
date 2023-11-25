@@ -11,7 +11,6 @@ use api\modules\v1\base\FormRequest;
 use common\enums\StatusEnum;
 use common\models\Product;
 use common\models\ProductCategory;
-use common\models\User;
 
 class ProductForm extends FormRequest
 {
@@ -33,6 +32,7 @@ class ProductForm extends FormRequest
             [['price'], 'number'],
             [['sub_text', 'body'], 'string'],
             [['name'], 'string', 'max' => 255],
+            ['photo', 'safe'],
             [['product_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductCategory::class, 'targetAttribute' => ['product_category_id' => 'id']],
         ];
     }

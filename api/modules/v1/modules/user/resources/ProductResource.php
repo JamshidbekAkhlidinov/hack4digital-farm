@@ -20,8 +20,14 @@ class ProductResource extends Product
             'photo',
             'price',
             'sub_text',
-            'body',
             'created_at',
+        ];
+    }
+
+    public function extraFields()
+    {
+        return [
+            'body',
         ];
     }
 }

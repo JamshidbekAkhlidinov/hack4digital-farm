@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "product_category".
@@ -29,6 +31,18 @@ class ProductCategory extends \yii\db\ActiveRecord
         return 'product_category';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'value' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'class' => BlameableBehavior::class,
+            ]
+        ];
+    }
     /**
      * {@inheritdoc}
      */
