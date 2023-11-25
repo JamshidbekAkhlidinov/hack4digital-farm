@@ -1,5 +1,6 @@
 <?php
 
+use backend\models\ModelToData;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,15 +13,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'question_id')->textInput() ?>
+    <?= $form->field($model, 'question_id')->dropDownList(
+        ModelToData::getQuestion(),
+        [
+            'prompt' => translate("--Select--")
+        ]
+    ) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
+    <?= $form->field($model, 'status')->checkbox() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

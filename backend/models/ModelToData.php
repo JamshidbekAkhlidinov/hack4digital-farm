@@ -9,6 +9,8 @@ namespace backend\models;
 
 use backend\modules\rbac\models\AuthItem;
 use backend\modules\rbac\models\AuthRule;
+use common\models\ProductCategory;
+use common\models\Question;
 use yii\helpers\ArrayHelper;
 
 class ModelToData
@@ -38,6 +40,24 @@ class ModelToData
             AuthRule::find()->all(),
             'name',
             'name',
+        );
+    }
+
+    public static function getProductCategory()
+    {
+        return ArrayHelper::map(
+            ProductCategory::find()->all(),
+            'id',
+            'name',
+        );
+    }
+
+    public static function getQuestion()
+    {
+        return ArrayHelper::map(
+            Question::find()->all(),
+            'id',
+            'text',
         );
     }
 }

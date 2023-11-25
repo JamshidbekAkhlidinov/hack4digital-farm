@@ -37,21 +37,40 @@ class MainMenu
                     ]
                 ],
                 [
-                    'label' => translate("Categories"),
+                    'label' => translate("Product Categories"),
                     'iconType' => 'fa',
                     'icon' => 'th-large ',
-                    'url' => ['/category'],
+                    'url' => ['/product-category'],
                     'options' => [
-                        'class' => $controller_id == 'specialist' ? 'active' : ''
+                        'class' => $controller_id == 'product-category' ? 'active' : ''
                     ]
                 ],
                 [
-                    'label' => translate("Application"),
+                    'label' => translate("Products"),
+                    'iconType' => 'fa',
+                    'icon' => 'th-large ',
+                    'url' => ['/product'],
+                    'options' => [
+                        'class' => $controller_id == 'product' ? 'active' : ''
+                    ]
+                ],
+                [
+                    'label' => translate("Questions"),
                     'iconType' => 'fa',
                     'icon' => 'mail-forward ',
-                    'url' => ['/application'],
+                    'url' => ['/question'],
                     'options' => [
-                        'class' => $controller_id == 'application' ? 'active' : ''
+                        'class' => $controller_id == 'question' ? 'active' : ''
+                    ]
+                ],
+
+                [
+                    'label' => translate("Answers"),
+                    'iconType' => 'fa',
+                    'icon' => 'mail-forward ',
+                    'url' => ['/answer'],
+                    'options' => [
+                        'class' => $controller_id == 'answer' ? 'active' : ''
                     ]
                 ],
 
