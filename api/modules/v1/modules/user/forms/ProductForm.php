@@ -11,6 +11,7 @@ use api\modules\v1\base\FormRequest;
 use common\enums\StatusEnum;
 use common\models\Product;
 use common\models\ProductCategory;
+use yii\web\UploadedFile;
 
 class ProductForm extends FormRequest
 {
@@ -52,10 +53,15 @@ class ProductForm extends FormRequest
     public function getResult()
     {
         $model = $this->model;
+        $file = UploadedFile::getInstanceByName('photo');
+        if ($file) {
+            $name = str_replace([' ', '-'], ['', ''], $file->name);
+            $file->saveAs("images/" . $name);
+            $model->photo = "images/" . $name;
+        }
         $model->status = StatusEnum::ACTIVE;
         $model->product_category_id = $this->product_category_id;
         $model->name = $this->name;
-        $model->photo = $this->photo;
         $model->price = $this->price;
         $model->sub_text = $this->sub_text;
         $model->body = $this->body;

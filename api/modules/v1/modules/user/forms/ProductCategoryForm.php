@@ -31,14 +31,13 @@ class ProductCategoryForm extends FormRequest
     {
         $this->model = $model;
         $this->name = $model->name;
-        $this->status = StatusEnum::ACTIVE;
         parent::__construct($config);
     }
 
     public function getResult()
     {
         $model = $this->model;
-        $model->status = $this->status;
+        $model->status = StatusEnum::ACTIVE;
         $model->name = $this->name;
         return $model->save();
     }
