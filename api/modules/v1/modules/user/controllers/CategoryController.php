@@ -1,9 +1,4 @@
 <?php
-/*
- *   Jamshidbek Akhlidinov
- *   6 - 10 2023 12:21:0
- *   https://github.com/JamshidbekAkhlidinov
- */
 
 namespace api\modules\v1\modules\user\controllers;
 

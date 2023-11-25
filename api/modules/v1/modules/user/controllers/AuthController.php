@@ -15,6 +15,7 @@ use api\modules\v1\modules\user\forms\auth\ResendVerificationEmailForm;
 use api\modules\v1\modules\user\forms\auth\ResetPasswordForm;
 use api\modules\v1\modules\user\forms\auth\SignupForm;
 use api\modules\v1\modules\user\forms\auth\VerifyEmailForm;
+use common\enums\UserRolesEnum;
 use InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 
@@ -41,6 +42,12 @@ class AuthController extends BaseController
             return $user->save();
         }
         return false;
+    }
+
+
+    public function actionRoles()
+    {
+        return UserRolesEnum::REGISTRATION;
     }
 
 

@@ -24,6 +24,14 @@ class UserResource extends User
             //'patronymic',
             'full_name',
             'created_at',
+            'role' => function (User $user) {
+                $auth = app()->authManager;
+                $items = [];
+                foreach ($auth->getRolesByUser($user->id) as $key => $role) {
+                    $items[] = $key;
+                }
+                return $items;
+            }
         ];
     }
 }

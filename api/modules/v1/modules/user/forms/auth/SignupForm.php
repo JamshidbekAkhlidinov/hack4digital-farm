@@ -8,6 +8,7 @@
 namespace api\modules\v1\modules\user\forms\auth;
 
 use api\modules\v1\base\FormRequest;
+use common\enums\UserRolesEnum;
 use common\models\User;
 use Yii;
 
@@ -24,6 +25,7 @@ class SignupForm extends FormRequest
     public $patronymic;
     public $full_name;
 
+    public $role;
 
     /**
      * {@inheritdoc}
@@ -44,7 +46,7 @@ class SignupForm extends FormRequest
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
-
+            ['role', 'safe'],
             [['first_name', 'last_name', 'patronymic', 'full_name'], 'string'],
         ];
     }
@@ -67,11 +69,18 @@ class SignupForm extends FormRequest
         $user->generateEmailVerificationToken();
 
         if ($user->save() && $this->sendEmail($user)) {
+            $auth = app()->authManager;
+            if ($this->role && $role = $auth->getRole($this->role)) {
+                $auth->assign($role, $user->id);
+            } else {
+                $role = $auth->getRole(UserRolesEnum::ROLE_USER);
+                $auth->assign($role, $user->id);
+            }
             return [
                 'success' => true,
-                'message' => "Checked your email address"
-            ];
+                'message' => "Checked your email address"];
         }
+
         return $user;
     }
 
@@ -80,8 +89,7 @@ class SignupForm extends FormRequest
      * @param User $user user model to with email should be send
      * @return bool whether the email was sent
      */
-    protected
-    function sendEmail($user)
+    protected function sendEmail($user)
     {
         return Yii::$app
             ->mailer
