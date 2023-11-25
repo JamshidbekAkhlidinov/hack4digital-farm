@@ -20,7 +20,12 @@ use yii\widgets\ActiveForm;
         ]
     ) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(
+        \alexantr\tinymce\TinyMCE ::class,
+        [
+            'presetPath' => '@common/config/tinymce.php',
+        ]
+    ) ?>
 
     <?= $form->field($model, 'status')->checkbox() ?>
 

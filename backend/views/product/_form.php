@@ -30,8 +30,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sub_text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
+    <?= $form->field($model, 'body')->widget(
+        \alexantr\tinymce\TinyMCE ::class,
+        [
+            'presetPath' => '@common/config/tinymce.php',
+        ]
+    ) ?>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

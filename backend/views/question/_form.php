@@ -12,8 +12,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
-
+    <?= $form->field($model, 'text')->widget(
+        \alexantr\tinymce\TinyMCE ::class,
+        [
+            'presetPath' => '@common/config/tinymce.php',
+        ]
+    ) ?>
     <?= $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">
