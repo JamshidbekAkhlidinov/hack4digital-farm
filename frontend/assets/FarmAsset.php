@@ -25,7 +25,7 @@ class FarmAsset extends AssetBundle
     ];
     public $js = [
         "js/vendor/modernizr-3.5.0.min.js",
-        "js/vendor/jquery-3.6.4.min.js",
+        //"js/vendor/jquery-3.6.4.min.js",
         "js/popper.min.js",
         "js/bootstrap.min.js",
         "js/slick.min.js",
