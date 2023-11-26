@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0713cca44c155250633409e58cca491",
+    "content-hash": "ca11c9cafa5842fa3ab56cb815bd682c",
     "packages": [
         {
             "name": "alexantr/yii2-tinymce",
@@ -2357,6 +2357,39 @@
             "time": "2022-09-04T10:48:21+00:00"
         },
         {
+            "name": "zafarjonovich/telegram",
+            "version": "2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zafarjonovich/Telegram.git",
+                "reference": "aacc2c7459f49e022f8c70e014d672bcf44bc36e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zafarjonovich/Telegram/zipball/aacc2c7459f49e022f8c70e014d672bcf44bc36e",
+                "reference": "aacc2c7459f49e022f8c70e014d672bcf44bc36e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "zafarjonovich\\Telegram\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Telegram helpers for every one",
+            "support": {
+                "issues": "https://github.com/zafarjonovich/Telegram/issues",
+                "source": "https://github.com/zafarjonovich/Telegram/tree/2.6.1"
+            },
+            "time": "2023-04-09T17:55:58+00:00"
+        },
+        {
             "name": "zafarjonovich/yii-translatable",
             "version": "dev-master",
             "source": {
@@ -2387,6 +2420,44 @@
                 "source": "https://github.com/zafarjonovich/yii2-translatable/tree/master"
             },
             "time": "2023-05-06T12:39:38+00:00"
+        },
+        {
+            "name": "ziya/telegram_proxy",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZiyaVakhobov/telegram_proxy.git",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZiyaVakhobov/telegram_proxy/zipball/24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "reference": "24f65b9760e857606c5f65fdf34b5df79fa93852",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ziya\\Proxy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "ZiyaVakhobov",
+                    "email": "ziyavuddin.vakhobov@gmail.com"
+                }
+            ],
+            "description": "Package for proxying telegram bot without any webhook",
+            "support": {
+                "issues": "https://github.com/ZiyaVakhobov/telegram_proxy/issues",
+                "source": "https://github.com/ZiyaVakhobov/telegram_proxy/tree/0.3"
+            },
+            "time": "2021-04-19T17:06:46+00:00"
         }
     ],
     "packages-dev": [

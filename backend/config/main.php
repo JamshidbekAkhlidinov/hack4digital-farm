@@ -9,13 +9,16 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'layout' => 'adminlte',
-    'defaultRoute' =>'dashboard',
+    'defaultRoute' => 'dashboard',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
         'rbac' => [
             'class' => backend\modules\rbac\Module::class,
+        ],
+        'bot' => [
+            'class' => app\modules\bot\Module::class,
         ],
     ],
     'components' => [

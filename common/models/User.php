@@ -203,7 +203,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $this->password_reset_token = rand(100000,999999);
+        $this->password_reset_token = rand(100000, 999999);
     }
 
     /**
@@ -211,7 +211,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateEmailVerificationToken()
     {
-        $this->verification_token = rand(100000,999999);
+        $this->verification_token = rand(100000, 999999);
     }
 
     /**
@@ -233,6 +233,9 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getFullName(): string
     {
+        if (!empty($this->full_name)) {
+            return $this->full_name;
+        }
         if (!empty($this->first_name)) {
             return $this->first_name . ' ' . $this->last_name;
         }
