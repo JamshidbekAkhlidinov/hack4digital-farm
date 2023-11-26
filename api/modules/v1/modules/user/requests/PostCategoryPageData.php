@@ -1,17 +1,18 @@
 <?php
 /*
  *   Jamshidbek Akhlidinov
- *   6 - 10 2023 12:22:54
+ *   26 - 11 2023 1:2:9
  *   https://github.com/JamshidbekAkhlidinov
  */
 
 namespace api\modules\v1\modules\user\requests;
 
 use api\modules\v1\base\BaseRequest;
-use api\modules\v1\modules\user\resources\PostCategoryResource;
+use api\modules\v1\modules\user\resources\ProductCategoryResource;
 use common\models\PostCategory;
+use common\models\ProductCategory;
 
-class ProductCategoryPageData extends BaseRequest
+class PostCategoryPageData extends BaseRequest
 {
 
     public PostCategory $category;
@@ -24,6 +25,6 @@ class ProductCategoryPageData extends BaseRequest
 
     public function getResult()
     {
-        return PostCategoryResource::findOne(['id' => $this->category->id]);
+        return ProductCategoryResource::findOne(['id' => $this->category->id]);
     }
 }
