@@ -50,11 +50,11 @@ FarmAsset::register($this);
                                             <a href="<?= Url::home() ?>">Bosh sahifa</a>
                                         </li>
                                         <li class="has-sub">
-                                            <a href="services">Xizmatlar</a>
+                                            <a href="<?=Url::to(['post/index'])?>">Xizmatlar</a>
                                         </li>
 
                                         <li class="has-sub">
-                                            <a href="#">Yangiliklar</a>
+                                            <a href="<?=Url::to(['post/index'])?>">Yangiliklar</a>
                                         </li>
                                         <li><a href="<?= Url::to(['site/contact']) ?>">Aloqa</a></li>
 
@@ -95,7 +95,7 @@ FarmAsset::register($this);
     <div class="offcanvas-overly"></div>
     <!-- offcanvas-end -->
     <!-- main-area -->
-    <?php if (!in_array(Yii::$app->controller->route, ['site/index'])) {
+    <?php if (!in_array(Yii::$app->controller->route, ['site/index','post/index'])) {
         $options = ' class="container" style="padding-top:150px"';
     } else {
         $options = "";
@@ -129,15 +129,15 @@ FarmAsset::register($this);
                     <div class="col-xl-2 col-lg-2 col-sm-6">
                         <div class="footer-widget mb-30">
                             <div class="f-widget-title">
-                                <h2>Our Links</h2>
+                                <h2>Havolalar</h2>
                             </div>
                             <div class="footer-link">
                                 <ul>
                                     <li><a href="<?= Url::home() ?>">Bosh sahifa</a></li>
-                                    <li><a href="about"> Malumot</a></li>
-                                    <li><a href="services"> Xizmatlar </a></li>
-                                    <li><a href="contact"> Bog'lanish</a></li>
-                                    <li><a href="blog">Yangiliklar </a></li>
+                                    <li><a href="<?=Url::to(['site/about'])?>"> Malumot</a></li>
+                                    <li><a href="<?=Url::to(['post/index'])?>"> Xizmatlar </a></li>
+                                    <li><a href="<?=Url::to(['site/contact'])?>"> Bog'lanish</a></li>
+                                    <li><a href="<?=Url::to(['post/index'])?>">Yangiliklar </a></li>
                                 </ul>
                             </div>
                         </div>
