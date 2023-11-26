@@ -35,13 +35,13 @@ FarmAsset::register($this);
             <div class="container">
                 <div class="second-menu">
                     <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-3">
+                        <div class="col-xl-1 col-lg-1">
                             <div class="logo">
                                 <a href="<?= Url::home() ?>"><img src="/img/logo/Present_logo.png" width="70px"
                                                                   alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6">
+                        <div class="col-xl-8 col-lg-8">
 
                             <div class="main-menu text-right text-xl-right">
                                 <nav id="mobile-menu">
